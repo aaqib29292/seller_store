@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "Seller Store", root_path, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "Products", products_path, remote: true %>
+        </li>
+        <li>
+          <%= link_to "Orders", orders_path, remote: true %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div id="home">
+    <h1>Seller Store</h1>
+  </div>
+  <div id="products" class="hidden">
+    <h1>Products</h1>
+    <div id="product_categories" class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Product Categories</h3>
+        </div>
+        <div class="list-group">
+          <%= render partial: 'products/product_categories' %>
+        </div>
+      </div>
+    </div>
+    <div id="products_list" class="col-sm-6 hidden">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Producs List</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="orders" class="hidden">
+    <h1>Orders</h1>
+  </div>
+</div>
