@@ -1,4 +1,4 @@
 class Order < ActiveRecord::Base
   belongs_to :customer
-  has_many :items, class_name: OrderItem.name
+  has_many :items, class_name: OrderItem.name, dependent: :destroy
 end
