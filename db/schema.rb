@@ -28,22 +28,22 @@ ActiveRecord::Schema.define(version: 20160323170035) do
     t.integer  "quantity"
     t.integer  "price_per_item"
     t.integer  "status"
-    t.integer  "Order_id"
-    t.integer  "Product_id"
+    t.integer  "order_id"
+    t.integer  "product_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
-  add_index "order_items", ["Order_id"], name: "index_order_items_on_Order_id"
-  add_index "order_items", ["Product_id"], name: "index_order_items_on_Product_id"
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
+  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id"
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "Customer_id"
+    t.integer  "customer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "orders", ["Customer_id"], name: "index_orders_on_Customer_id"
+  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id"
 
   create_table "product_categories", force: :cascade do |t|
     t.string   "name"
@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20160323170035) do
     t.string   "name"
     t.integer  "quantity"
     t.integer  "price"
-    t.integer  "ProductCategory_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "product_category_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
-  add_index "products", ["ProductCategory_id"], name: "index_products_on_ProductCategory_id"
+  add_index "products", ["product_category_id"], name: "index_products_on_product_category_id"
 
 end
