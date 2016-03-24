@@ -26,11 +26,6 @@ def seed_customer(i)
   dot
 end
 
-def seed_product_category(name)
-  pc = ProductCategory.find_or_create_by(name: name)
-  dot
-  return pc
-end
 
 puts "# Seeding Customers"
 (1..100).each do |i|
@@ -38,9 +33,14 @@ puts "# Seeding Customers"
 end
 puts "  Done."
 
+def seed_product_category(name)
+  pc = ProductCategory.find_or_create_by(name: name)
+  dot
+  return pc
+end
 
 puts "# Seeding Products"
-(1000 - Product.count).times do
+(50 - Product.count).times do
   product_name = ""
   while(product_name.blank? || Product.where(name: product_name).any?)
     product_category_name = Faker::Commerce.department(1)
@@ -51,7 +51,7 @@ puts "# Seeding Products"
 
   pc = seed_product_category(product_category_name)
   Product.find_or_create_by(name: product_name) do |product|
-    product.product_category_id = pc
+    product.product_category= pc
     product.price = 10 + price.to_i
     product.quantity = quantity
   end
