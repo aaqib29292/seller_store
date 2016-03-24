@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to "Products", products_path, remote: true %>
+          <%= link_to "Products", product_categories_path, remote: true %>
         </li>
         <li>
           <%= link_to "Orders", orders_path, remote: true %>
@@ -27,7 +27,7 @@
           <h3 class="panel-title">Product Categories</h3>
         </div>
         <div class="list-group">
-          <%= render partial: 'products/product_categories' %>
+          <%= render partial: @product_categories %>
         </div>
       </div>
     </div>

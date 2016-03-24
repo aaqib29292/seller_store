@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'product_categories/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :products
+  resources :product_categories do
+    resources :products
+  end
 
   resources :orders do
     resources :order_items
