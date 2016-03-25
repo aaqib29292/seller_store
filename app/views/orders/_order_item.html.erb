@@ -1,6 +1,17 @@
 <% order_items.each do |order| %>
       <li class="list-group-item">
-        <span class= "btn btn-sm btn-info">Order.Id: <%= order.id %></span>
-        <span class="pull-right"><%= order.customer.name %></span>
+        <% if order.status != 1 %>
+          <%= link_to fa_icon('arrow-left'), order_path(order, status: order.status - 1), method: :patch, class: "pull-left", remote: true %>
+          <span class="pull-left">&nbsp;&nbsp;</span>
+        <% end %>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <%= link_to "Order.id:#{order.id}", "#", class: "btn btn-sm btn-info pull-center" %>
+        <% if order.status != 4 %>
+          <%= link_to fa_icon('arrow-right'), order_path(order, status: order.status + 1), method: :patch, class: "pull-right", remote: true %>
+          <span class="pull-right">&nbsp;&nbsp;</span>
+        <% end %>
+        <div class="text-center">
+          <%= order.customer.name %>
+        </div>
       </li>
 <% end %>

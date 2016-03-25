@@ -1,7 +1,17 @@
 class OrdersController < ApplicationController
-  def index
-    @customers = Customer.includes(orders: [:items]).all
+  before_action :fetch_orders
 
+  def index
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    @order.update_attribute(:status, params[:status].to_i)
+    render :index
+  end
+
+private
+  def fetch_orders
     @orders = Order.all
     @processing = @orders.includes(:items).where(status: 1)
     @packed = @orders.includes(:items).where(status: 2)
