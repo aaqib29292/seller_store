@@ -1,3 +1,7 @@
 $('#home').addClass("hidden");
 $('#products').addClass("hidden");
 $('#orders').removeClass("hidden");
+$('#processing_list').html('<%= j render partial:"orders/order_item", locals: {order_items: @processing} %>')
+$('#packed_list').html('<%= j render partial:"orders/order_item", locals: {order_items: @packed} %>')
+$('#picked_list').html('<%= j render partial:"orders/order_item", locals: {order_items: @picked} %>')
+$('#delivered_list').html('<%= j render partial:"orders/order_item", locals: {order_items: @delivered} %>')

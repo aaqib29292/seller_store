@@ -5,13 +5,13 @@ namespace :mock do
     customer = Customer.all.sample
     products_count = rand(5) + 1
     products = Product.all.sample(products_count)
-    order = customer.orders.create
+    order = customer.orders.create(status: 1)
     products_ordered = []
     products_cancelled = []
     products.each do |product|
       quantity = 1 + rand(3)
       if product.quantity > quantity
-        order.items.create(product_id: product.id, quantity: quantity, status: OrderItem::Status.all.sample.code, price_per_item: product.price)
+        order.items.create(product_id: product.id, quantity: quantity, price_per_item: product.price)
         products_ordered.push(product)
         # update product quantity
       else

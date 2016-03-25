@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20160323170035) do
   create_table "order_items", force: :cascade do |t|
     t.integer  "quantity"
     t.integer  "price_per_item"
-    t.integer  "status"
     t.integer  "order_id"
     t.integer  "product_id"
     t.datetime "created_at",     null: false
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160323170035) do
   add_index "order_items", ["product_id"], name: "index_order_items_on_product_id"
 
   create_table "orders", force: :cascade do |t|
+    t.integer  "status"
     t.integer  "customer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

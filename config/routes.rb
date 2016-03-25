@@ -1,21 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'customers/index'
-
-  get 'order_items/index'
-
-  get 'product_categories/index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :product_categories do
     resources :products
   end
 
-  resources :customers do
-    resources :orders do
-      resources :order_items
-    end
+  resources :customers
+  resources :orders do
+    resources :order_items
   end
 
   # You can have the root of your site routed with "root"

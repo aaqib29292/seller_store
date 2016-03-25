@@ -1,0 +1,6 @@
+<% order_items.each do |order| %>
+      <li class="list-group-item">
+        <span class= "btn btn-sm btn-info">Order.Id: <%= order.id %></span>
+        <span class="pull-right"><%= order.customer.name %></span>
+      </li>
+<% end %>
