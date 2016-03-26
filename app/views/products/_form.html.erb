@@ -1,0 +1,18 @@
+<div class="modal fade" id="new_product" tabindex="-1" role="dialog" aria-labelledby="newProduct">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= @product.new_record? ? "Add a new Product" : "Update #{@product.name} Details" %></h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@product_category, @product], remote: true, html: { id: "new-product-form", class: "form-horizontal"}, wrapper: :horizontal_form do |f| %>
+          <%= f.input :name %>
+          <%= f.input :quantity %>
+          <%= f.input :price %>
+          <%= f.submit (@product.new_record? ? "Add Product" : "Update Details"), class:"btn btn-primary"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

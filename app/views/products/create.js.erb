@@ -1,0 +1,7 @@
+$('#new_product').modal('hide')
+<% if @save_success %>
+  $("#category_products_list").append("<%= j render(@product) %>");
+
+  $("form#new-product-form")[0].reset();
+  // reset is defined on dom ele but not on jquery so [0] is added
+<% end %>

@@ -1,0 +1,3 @@
+$("#product_details").removeClass('hidden');
+$("#products_desc").html('<%= j render(partial: "products/product_details", locals: {product: @product}) %>');
+$("#product_details .panel-heading a").attr('href', '<%= edit_product_category_product_path(@product_category, @product) %>');

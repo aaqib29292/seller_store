@@ -14,6 +14,8 @@ namespace :mock do
         order.items.create(product_id: product.id, quantity: quantity, price_per_item: product.price)
         products_ordered.push(product)
         # update product quantity
+        # puts "#{product.name} - #{product.quantity}"
+        product.update_attributes(quantity: product.quantity - quantity)
       else
         products_cancelled.push(product)
       end

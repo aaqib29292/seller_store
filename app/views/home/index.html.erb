@@ -23,21 +23,33 @@
   <div id="products" class="hidden">
     <h1>Products</h1>
     <div id="product_categories" class="col-sm-4">
-      <div class="panel panel-primary">
+      <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">Product Categories</h3>
+          <b>Product Categories</b>
         </div>
         <div class="list-group">
           <%= render @product_categories %>
         </div>
       </div>
     </div>
-    <div id="products_list" class="col-sm-6 hidden">
-      <div class="panel panel-primary">
+    <div id="products_list" class="col-sm-3 hidden">
+      <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">Products List</h3>
+          <b>Products List</b>
+          <%= link_to fa_icon("plus-square"), "#", class: "pull-right", remote: true %>
         </div>
         <div id="category_products_list" class="list-group">
+        </div>
+      </div>
+    </div>
+    <div id="product_details" class="col-sm-5 hidden">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <b>Product Details</b>
+          <%= link_to fa_icon("pencil-square-o"), "#", class: "pull-right", remote: true %>
+        </div>
+        <div id="products_desc">
+
         </div>
       </div>
     </div>
@@ -46,36 +58,36 @@
   <div id="orders" class="hidden">
     <h1>Orders</h1>
     <div id="processing" class="col-sm-3">
-      <div class="panel panel-primary">
+      <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">Procesing Orders</h3>
+          <b>Procesing Orders</b>
         </div>
         <div id="processing_list" class="list-group">
         </div>
       </div>
     </div>
     <div id="packed" class="col-sm-3">
-      <div class="panel panel-primary">
+      <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">Packed Orders</h3>
+          <b>Packed Orders</b>
         </div>
         <div id="packed_list" class="list-group">
         </div>
       </div>
     </div>
     <div id="picked" class="col-sm-3">
-      <div class="panel panel-primary">
+      <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">Picked Orders</h3>
+          <b>Picked Orders</b>
         </div>
         <div id="picked_list" class="list-group">
         </div>
       </div>
     </div>
     <div id="delivered" class="col-sm-3">
-      <div class="panel panel-primary">
+      <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">Delivered Orders</h3>
+          <b>Delivered Orders</b>
         </div>
         <div id="delivered_list" class="list-group">
         </div>
@@ -83,3 +95,7 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- new product model -->

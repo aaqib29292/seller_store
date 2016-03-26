@@ -1,4 +1,1 @@
-<li class="list-group-item">
-  <%= product.name %>
-  <span class="pull-right"><%= product.quantity %></span>
-</li>
+<%= link_to product.name, product_category_product_path(@product_category, product), class: "list-group-item", remote: true %>

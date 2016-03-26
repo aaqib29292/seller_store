@@ -1,0 +1,9 @@
+<dl class="dl-horizontal">
+  <% [:id, :name, :quantity, :price].each do |desc| %>
+    <dt><%= desc.to_s.titlecase %></dt>
+    <dd>
+      <%= product.send(desc) %>
+    </dd>
+  <% end %>
+
+</dl>
