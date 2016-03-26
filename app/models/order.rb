@@ -24,4 +24,27 @@ class Order < ActiveRecord::Base
       [PROCESSING, PACKED, PICKED, DELIVERED].collect{|hsh| OpenStruct.new(hsh)}
     end
   end
+
+  module Courier
+    FEDEX = {code: 1, label: "FedEx"}
+    PROFESSIONAL = {code: 2, label: "Professiona Couriers"}
+    BLUEDART = {code: 3, label: "Blue Dart"}
+    DTDC = {code: 4, label: "DTDC"}
+
+    def self.label(code)
+      if code == FEDEX[:code]
+        return FEDEX[:label]
+      elsif code == PROFESSIONAL[:code]
+        return PROFESSIONAL[:label]
+      elsif code == BLUEDART[:code]
+        return BLUEDART[:label]
+      else
+        return DTDC[:label]
+      end
+    end
+
+    def self.all
+      [FEDEX, PROFESSIONAL, BLUEDART, DTDC].collect{|hsh| OpenStruct.new(hsh)}
+    end
+  end
 end

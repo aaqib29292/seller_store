@@ -1,0 +1,16 @@
+<div class="modal fade" id="courier_service" tabindex="-1" role="dialog" aria-labelledby="newProduct">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Courier Service</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for order, remote: true, html: { id: "transport-form", class: "form-horizontal"}, wrapper: :horizontal_form do |f| %>
+          <%= f.input :courier, collection: Order::Courier::all, include_blank: false, value_method: :code, label_method: :label %>
+          <%= link_to "Select", order_path(status: 3, courier: 3), method: :patch, class: "btn btn-sm btn-primary", remote: true %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

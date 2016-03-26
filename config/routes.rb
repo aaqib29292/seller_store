@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get 'orders/:id/transport' => 'orders#transport', as: :transport
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :product_categories do

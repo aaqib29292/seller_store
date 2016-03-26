@@ -1,0 +1,3 @@
+$('#courier_service').remove();
+$('body').append('<%= j render(partial: "orders/transport", locals: {order: @order}) %>');
+$('#courier_service').modal("show");

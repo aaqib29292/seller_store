@@ -5,7 +5,7 @@ namespace :mock do
     customer = Customer.all.sample
     products_count = rand(5) + 1
     products = Product.all.sample(products_count)
-    order = customer.orders.create(status: 1)
+    order = customer.orders.create(status: 1, courier: 4)
     products_ordered = []
     products_cancelled = []
     products.each do |product|
