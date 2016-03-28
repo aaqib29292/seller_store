@@ -5,16 +5,18 @@ class OrdersController < ApplicationController
   end
 
   def update
+    status = (params[:status] || params[:order][:status]).to_i
     @order = Order.find(params[:id])
-    if @order.status == 2
-      @order.update_attribute(:courier, params[:courier].to_i)
+    if (status == 3) && params[:order] && params[:order][:courier]
+      @order.update_attribute(:courier, params[:order][:courier].to_i)
     end
-    @order.update_attribute(:status, params[:status].to_i)
+    @order.update_attribute(:status, status.to_i)
     render :index
   end
 
   def transport
     @order = Order.find(params[:id])
+    @order.status = 3
   end
 
 private

@@ -7,8 +7,10 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for order, remote: true, html: { id: "transport-form", class: "form-horizontal"}, wrapper: :horizontal_form do |f| %>
+          <%= f.input :status, as: :hidden %>
           <%= f.input :courier, collection: Order::Courier::all, include_blank: false, value_method: :code, label_method: :label %>
-          <%= link_to "Select", order_path(status: 3, courier: 3), method: :patch, class: "btn btn-sm btn-primary", remote: true %>
+          <%= f.submit "Select", class: "btn btn-sm btn-primary", remote: true %>
+          <%#= link_to "Select", order_path(status: 3, courier: 3), method: :patch, class: "btn btn-sm btn-primary", remote: true %>
         <% end %>
       </div>
     </div>
