@@ -26,17 +26,29 @@
       <div class="panel panel-warning">
         <div class="panel-heading">
           <b>Product Categories</b>
+          <%= link_to fa_icon("line-chart"), "#", class: "pull-right charts", remote: true %>
         </div>
         <div class="list-group">
           <%= render @product_categories %>
         </div>
       </div>
     </div>
+    <div id="analytics" class="col-md-8 hidden">
+     <div class="panel panel-warning">
+       <div class="panel-heading">
+         <b>Analytics</b>
+       </div>
+       <div id="analytics_content" class="panel-body">
+       </div>
+     </div>
+    </div>
     <div id="products_list" class="col-sm-3 hidden">
       <div class="panel panel-warning">
         <div class="panel-heading">
           <b>Products List</b>
-          <%= link_to fa_icon("plus-square"), "#", class: "pull-right", remote: true %>
+          <%= link_to fa_icon("plus-square"), "#", class: "pull-right add", remote: true %>
+          <span class="pull-right">&nbsp;&nbsp;&nbsp;</span>
+          <%= link_to fa_icon("line-chart"), "#", class: "pull-right charts", remote: true %>
         </div>
         <div id="category_products_list" class="list-group">
         </div>

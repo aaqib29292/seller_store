@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
   get 'orders/:id/transport' => 'orders#transport', as: :transport
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-  resources :product_categories do
-    resources :products
-  end
+   get 'product_categories/analytics' => 'product_categories#analytics', as: :analytics
+   get 'products/:product_category_id/analytics' => 'products#analytics', as: :product_analytics
+   # The priority is based upon order of creation: first created -> highest priority.
+   # See how all your routes lay out with "rake routes".
+   resources :product_categories do
+     resources :products
+   end
 
-  resources :customers
-  resources :orders do
-    resources :order_items
-  end
+   resources :customers
+   resources :orders do
+     get 'analytics', on: :member
+     resources :order_items
+   end
 
-  # You can have the root of your site routed with "root"
-  root 'home#index'
+   # You can have the root of your site routed with "root"
+   root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -23,8 +23,6 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'jquery-ui-rails'
 
-gem 'bootswatch-rails'
-
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -36,6 +34,7 @@ gem 'annotate'
 gem 'bootswatch-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'chartkick'
 
 # gem 'simple_form'
 # Use ActiveModel has_secure_password

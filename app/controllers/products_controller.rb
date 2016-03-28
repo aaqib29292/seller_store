@@ -26,6 +26,15 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def analytics
+   # Count of Products ordered for a category
+   @products_data = {}
+   @product_category.products.each do |product|
+     products_count = product.items.count
+     @products_data["#{product.name}"] = products_count
+   end
+  end
+  
 private
   def product_params
     params.require(:product).permit(:name, :quantity, :price)
