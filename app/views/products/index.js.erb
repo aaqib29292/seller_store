@@ -2,3 +2,6 @@ $("#product_details").addClass('hidden');
 $('#products_list').removeClass("hidden");
 $('#category_products_list').html('<%= j render(@products) %>');
 $("#products_list .panel-heading a").attr('href', '<%= new_product_category_product_path(@product_category) %>');
+
+$("a.product-category-item").removeClass("active");
+$("a#<%= dom_id(@product_category) %>").addClass("active");

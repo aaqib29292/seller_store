@@ -1,1 +1,1 @@
-<%= link_to product.name, product_category_product_path(@product_category, product), class: "list-group-item", remote: true %>
+<%= link_to product.name, product_category_product_path(@product_category, product),id: dom_id(product), class: "list-group-item product-item", remote: true %>
